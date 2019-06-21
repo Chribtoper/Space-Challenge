@@ -15,10 +15,14 @@ public class Rocket implements SpaceShip {
     }
 
     public final boolean canCarry(Item item) {
-        return true;
+        if (this.weight - (double) item.getWeight() > 0.0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public final void carry(Item item) {
-
+        this.weight -= (double) item.getWeight();
     }
 }

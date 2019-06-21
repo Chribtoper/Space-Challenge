@@ -5,24 +5,39 @@ import java.io.File;
 
 public class Simulation {
 
-    public void loadU1() {
+    public ArrayList loadU1() {
 
         ArrayList<Item> items = this.loadItems(1);
         ArrayList<Rocket> rockets = new ArrayList<>();
         Rocket rocket = new U1();
 
-        for(int i = 0; i < items.size(); i++) {
-
-            Item item = items.get(i);
-            System.out.println(item.getName());
-            System.out.println(item.getWeight());
-
+        for(Item item: items) {
+            if (rocket.canCarry(item)) {
+                rocket.carry(item);
+            } else {
+                rockets.add(rocket);
+                rocket = new U1();
+            }
         }
+        return rockets;
     }
 
-//    public ArrayList loadU2() {
-//
-//    }
+    public ArrayList loadU2() {
+
+        ArrayList<Item> items = this.loadItems(2);
+        ArrayList<Rocket> rockets = new ArrayList<>();
+        Rocket rocket = new U2();
+
+        for(Item item: items) {
+            if (rocket.canCarry(item)) {
+                rocket.carry(item);
+            } else {
+                rockets.add(rocket);
+                rocket = new U2();
+            }
+        }
+        return rockets;
+    }
 
     private ArrayList loadItems(int num) {
 
