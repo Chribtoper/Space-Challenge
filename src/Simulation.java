@@ -6,9 +6,9 @@ import java.io.File;
 public class Simulation {
 
     // public ArrayList<Item>
-    public void loadItems() {
+    public ArrayList loadItems() {
 
-
+        ArrayList<Item> itemList = new ArrayList<Item>();
 
         try {
             int num = 1;
@@ -17,10 +17,12 @@ public class Simulation {
             while (scanner.hasNextLine()) {
                 String line[] = scanner.nextLine().split("=");
                 Item item = new Item(line[0], Integer.parseInt(line[1]));
+                itemList.add(item);
             }
         } catch (FileNotFoundException f) {
             System.out.println(f);
             System.out.println("File not found.");
         }
+        return itemList;
     }
 }
