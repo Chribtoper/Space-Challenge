@@ -6,12 +6,11 @@ import java.io.File;
 public class Simulation {
 
     // public ArrayList<Item>
-    public ArrayList loadItems() {
+    public ArrayList loadItems(int num) {
 
         ArrayList<Item> itemList = new ArrayList<Item>();
 
         try {
-            int num = 1;
             File file = new File("phase-" +num+ ".txt");
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
@@ -21,7 +20,8 @@ public class Simulation {
             }
         } catch (FileNotFoundException f) {
             System.out.println(f);
-            System.out.println("File not found.");
+            System.out.println("File not found. Make sure you have files named like 'phase-1.txt', 'phase-2.txt'... etc");
+            System.out.println("Simulation.loadItems(int num) takes an integer as a param which will determine which phase file to input.");
         }
         return itemList;
     }
