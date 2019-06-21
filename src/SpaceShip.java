@@ -3,4 +3,5 @@ public interface SpaceShip {
     boolean land();
     boolean canCarry(Item item);
     void carry(Item item);
+    long getPrice();
 }

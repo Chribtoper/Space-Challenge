@@ -5,9 +5,24 @@ import java.io.File;
 
 public class Simulation {
 
-    public ArrayList loadU1() {
+    public long runSimulation(ArrayList<Rocket> rockets) {
 
-        ArrayList<Item> items = this.loadItems(1);
+        long budget = 0;
+
+        for(Rocket rocket: rockets) {
+            long cost = rocket.getPrice();
+
+            do {
+                budget += cost;
+                if ((rocket.launch() && rocket.land())) break;
+            } while (true);
+        }
+        return budget;
+    }
+
+    public ArrayList loadU1(int num) {
+
+        ArrayList<Item> items = this.loadItems(num);
         ArrayList<Rocket> rockets = new ArrayList<>();
         Rocket rocket = new U1();
 
@@ -22,9 +37,9 @@ public class Simulation {
         return rockets;
     }
 
-    public ArrayList loadU2() {
+    public ArrayList loadU2(int num) {
 
-        ArrayList<Item> items = this.loadItems(2);
+        ArrayList<Item> items = this.loadItems(num);
         ArrayList<Rocket> rockets = new ArrayList<>();
         Rocket rocket = new U2();
 
@@ -39,6 +54,8 @@ public class Simulation {
         return rockets;
     }
 
+    // Takes in an integer "num" which represents which phase.txt file to import.
+    // Example, inputting 1 would import "phase-1.txt".
     private ArrayList loadItems(int num) {
 
         ArrayList<Item> itemList = new ArrayList<>();

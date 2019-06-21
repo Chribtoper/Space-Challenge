@@ -1,9 +1,16 @@
 public class Rocket implements SpaceShip {
 
-    private double weight;
+    private double maxWeight;
+    private double weightCarried;
+    private int price;
 
-    public Rocket(double weight) {
-        this.weight = weight;
+    public Rocket(double maxWeight, int price) {
+        this.maxWeight = maxWeight;
+        this.price = price;
+    }
+
+    public long getPrice() {
+        return this.price;
     }
 
     public boolean launch() {
@@ -15,7 +22,7 @@ public class Rocket implements SpaceShip {
     }
 
     public final boolean canCarry(Item item) {
-        if (this.weight - (double) item.getWeight() > 0.0) {
+        if (this.weightCarried + (double) item.getWeight() < maxWeight) {
             return true;
         } else {
             return false;
@@ -23,6 +30,6 @@ public class Rocket implements SpaceShip {
     }
 
     public final void carry(Item item) {
-        this.weight -= (double) item.getWeight();
+        this.weightCarried += (double) item.getWeight();
     }
 }
