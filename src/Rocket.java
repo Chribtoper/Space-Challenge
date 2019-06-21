@@ -1,7 +1,10 @@
 public class Rocket implements SpaceShip {
 
-    private int cost;
-    private int weight;
+    private double weight;
+
+    public Rocket(double weight) {
+        this.weight = weight;
+    }
 
     public boolean launch() {
         return true;
@@ -11,11 +14,11 @@ public class Rocket implements SpaceShip {
         return true;
     }
 
-    public boolean canCarry(Item item) {
+    public final boolean canCarry(Item item) {
         return true;
     }
 
-    public void carry(Item item) {
+    public final void carry(Item item) {
 
     }
 }

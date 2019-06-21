@@ -5,10 +5,28 @@ import java.io.File;
 
 public class Simulation {
 
-    // public ArrayList<Item>
-    public ArrayList loadItems(int num) {
+    public void loadU1() {
 
-        ArrayList<Item> itemList = new ArrayList<Item>();
+        ArrayList<Item> items = this.loadItems(1);
+        ArrayList<Rocket> rockets = new ArrayList<>();
+        Rocket rocket = new U1();
+
+        for(int i = 0; i < items.size(); i++) {
+
+            Item item = items.get(i);
+            System.out.println(item.getName());
+            System.out.println(item.getWeight());
+
+        }
+    }
+
+//    public ArrayList loadU2() {
+//
+//    }
+
+    private ArrayList loadItems(int num) {
+
+        ArrayList<Item> itemList = new ArrayList<>();
 
         try {
             File file = new File("phase-" +num+ ".txt");

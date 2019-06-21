@@ -8,4 +8,11 @@ public final class Item {
         this.weight = weight;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getWeight() {
+        return this.weight;
+    }
 }
