@@ -4,4 +4,5 @@ public interface SpaceShip {
     boolean canCarry(Item item);
     void carry(Item item);
     long getPrice();
+    double weightDivide();
 }

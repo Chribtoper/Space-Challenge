@@ -1,7 +1,7 @@
 public class U2 extends Rocket {
 
     public U2() {
-        // I call the Parents constructor to add a custom "weight" double since children classes of "Rocket" have difference available weights.
+        // I call the Parents constructor to add a custom "weight" and "price" since children classes of "Rocket" have difference available weight/price.
         super(16329.3, 120000000);
     }
 
