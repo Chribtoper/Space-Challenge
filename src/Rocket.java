@@ -13,6 +13,10 @@ public class Rocket implements SpaceShip {
         return this.price;
     }
 
+    public double weightDivide() {
+        return this.weightCarried/this.maxWeight;
+    }
+
     public boolean launch() {
         return true;
     }

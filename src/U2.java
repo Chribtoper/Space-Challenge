@@ -6,10 +6,20 @@ public class U2 extends Rocket {
     }
 
     public boolean launch() {
-        return true;
+        if ((Math.random() >= .04 * this.weightDivide())) {
+            return true;
+        } else {
+            System.out.println("Explosion");
+            return false;
+        }
     }
 
     public boolean land() {
-        return true;
+        if ((Math.random() >= .08 * this.weightDivide())) {
+            return true;
+        } else {
+            System.out.println("Crash");
+            return false;
+        }
     }
 }

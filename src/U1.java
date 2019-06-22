@@ -6,10 +6,20 @@ public class U1 extends Rocket {
     }
 
     public boolean launch() {
-        return true;
+        if ((Math.random() >= .05 * this.weightDivide())) {
+            return true;
+        } else {
+            System.out.println("Explosion");
+            return false;
+        }
     }
 
     public boolean land() {
-        return true;
+        if ((Math.random() >= .01 * this.weightDivide())) {
+            return true;
+        } else {
+            System.out.println("Crash");
+            return false;
+        }
     }
 }
